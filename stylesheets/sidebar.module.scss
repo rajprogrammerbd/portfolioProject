@@ -1,0 +1,29 @@
+.sidebar_btn {
+    display: inline-block;
+    cursor: pointer;
+    position: absolute;
+    right: 50px;
+    top: 35px;
+    z-index: 1000;
+    overflow: hidden;
+    background: transparent;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 19px;
+    height: 3px;
+    margin: 4px 0;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.fullScreenHover {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    background-color: #2a2a72;
+    background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
+
+}
