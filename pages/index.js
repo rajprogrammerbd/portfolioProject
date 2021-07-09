@@ -2,6 +2,7 @@ import Header from "./../components/header";
 import AboutME from "./../components/aboutme";
 import Projects from "./../components/projects";
 import Feature from "./../components/feature";
+import Contact from "./../components/contact";
 
 const Home = props => {
     const colors = ( props.customState.newImplementation === undefined) ? { backgroundColor: props.customState.initial.webBackgroundColor, textColor: props.customState.initial.textColor } : { backgroundColor: props.customState.newImplementation.backgroundColor, textColor: props.customState.newImplementation.color }
@@ -12,6 +13,7 @@ const Home = props => {
             <AboutME colors={colors} />
             <Projects colors={colors} />
             <Feature colors={colors} />
+            <Contact colors={colors} />
         </>
     );
 }

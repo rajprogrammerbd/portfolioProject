@@ -42,6 +42,19 @@ const Sidebar = ({ colors }) => {
         }
     });
 
+    const { completeHover } = useSpring({
+        from: {
+            completeHover: 0
+        },
+        to: {
+            completeHover: ( state.openSidebar ) ? 1 : 0
+        },
+        delay: 800,
+        config: {
+            duration: 1000
+        }
+    });
+
     const openSidebar = () => {
         setState({ ...state, openSidebar: !state.openSidebar });
     }
@@ -54,7 +67,18 @@ const Sidebar = ({ colors }) => {
                 <animated.div className={styles.bar3} style={{ backgroundColor: lineColor.to(v => `${v}`), transform: to([ThirdBarT, ThirdBarTranslateX, ThirdBarTranslateY], (ThirdBarT, ThirdBarTranslateX, ThirdBarTranslateY) => `rotate(${ThirdBarT}deg) translate(${ThirdBarTranslateX}px, ${ThirdBarTranslateY}px)`) }}></animated.div>
             </span>
             <animated.div className={styles.fullScreenHover} style={{ right: slideValue.to(v => `${v}%`) }}>
-                <h2>Hello World!</h2>
+                <animated.div className={styles.hover} style={{ opacity: completeHover.to(v => v) }}>
+                    <h2 className={styles.mainTitle}><a href="/">RAJ</a></h2>
+                    
+                    <ul>
+                        <li> <a href="/">GitHub</a></li>
+                        <li> <a href="/">Linkedin</a></li>
+                        <li> <a href="">Twitter</a></li>
+                        <li> <a href="/">StackOverflow</a></li>
+                        <li> <a href="/">Medium</a></li>
+                    </ul>
+
+                </animated.div>
             </animated.div>
         </>
     );
