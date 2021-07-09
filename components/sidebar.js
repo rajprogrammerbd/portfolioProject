@@ -58,6 +58,88 @@ const Sidebar = ({ colors }) => {
     const openSidebar = () => {
         setState({ ...state, openSidebar: !state.openSidebar });
     }
+
+    const { animationOne, opacityOne } = useSpring({
+        from: {
+            animationOne: 50,
+            opacityOne: 0
+        },
+        to: {
+            animationOne: ( state.openSidebar ) ? 0 : 50,
+            opacityOne: ( state.openSidebar ) ? 1 : 0
+        },
+        delay: 900,
+        config: {
+            easing: d3.easeQuadOut,
+            duration: 1000
+        }
+    });
+
+    const { animationTwo, opacityTwo } = useSpring({
+        from: {
+            animationTwo: 50,
+            opacityTwo: 0
+        },
+        to: {
+            animationTwo: ( state.openSidebar ) ? 0 : 50,
+            opacityTwo: ( state.openSidebar ) ? 1 : 0
+        },
+        delay: 1100,
+        config: {
+            easing: d3.easeQuadOut,
+            duration: 1000
+        }
+    });
+
+
+    const { animationThree, opacityThree } = useSpring({
+        from: {
+            animationThree: 50,
+            opacityThree: 0
+        },
+        to: {
+            animationThree: ( state.openSidebar ) ? 0 : 50,
+            opacityThree: ( state.openSidebar ) ? 1 : 0
+        },
+        delay: 1300,
+        config: {
+            easing: d3.easeQuadOut,
+            duration: 1000
+        }
+    });
+
+    const { animationFour, opacityFour } = useSpring({
+        from: {
+            animationFour: 50,
+            opacityFour: 0
+        },
+        to: {
+            animationFour: ( state.openSidebar ) ? 0 : 50,
+            opacityFour: ( state.openSidebar ) ? 1 : 0
+        },
+        delay: 1500,
+        config: {
+            easing: d3.easeQuadOut,
+            duration: 1000
+        }
+    });
+
+
+    const { animationFive, opacityFive } = useSpring({
+        from: {
+            animationFive: 50,
+            opacityFive: 0
+        },
+        to: {
+            animationFive: ( state.openSidebar ) ? 0 : 50,
+            opacityFive: ( state.openSidebar ) ? 1 : 0
+        },
+        delay: 1700,
+        config: {
+            easing: d3.easeQuadOut,
+            duration: 1000
+        }
+    });
     
     return (
         <>
@@ -71,11 +153,11 @@ const Sidebar = ({ colors }) => {
                     <h2 className={styles.mainTitle}><a href="/">RAJ</a></h2>
                     
                     <ul>
-                        <li> <a href="/">GitHub</a></li>
-                        <li> <a href="/">Linkedin</a></li>
-                        <li> <a href="">Twitter</a></li>
-                        <li> <a href="/">StackOverflow</a></li>
-                        <li> <a href="/">Medium</a></li>
+                        <animated.li style={{ opacity: opacityOne.to(v => v), transform: animationOne.to(v => `translateX(${v}px)`)}}> <a href="/">GitHub</a></animated.li>
+                        <animated.li style={{ opacity: opacityTwo.to(v => v), transform: animationTwo.to(v => `translateX(${v}px)`)}}> <a href="/">Linkedin</a></animated.li>
+                        <animated.li style={{ opacity: opacityThree.to(v => v), transform: animationThree.to(v => `translateX(${v}px)`)}}> <a href="">Twitter</a></animated.li>
+                        <animated.li style={{ opacity: opacityFour.to(v => v), transform: animationFour.to(v => `translateX(${v}px)`)}}> <a href="/">StackOverflow</a></animated.li>
+                        <animated.li style={{ opacity: opacityFive.to(v => v), transform: animationFive.to(v => `translateX(${v}px)`)}}> <a href="/">Medium</a></animated.li>
                     </ul>
 
                 </animated.div>
