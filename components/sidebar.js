@@ -153,7 +153,7 @@ const Sidebar = ({ colors }) => {
                     <h2 className={styles.mainTitle}><a href="/">RAJ</a></h2>
                     
                     <ul>
-                        <animated.li style={{ opacity: opacityOne.to(v => v), transform: animationOne.to(v => `translateX(${v}px)`)}}> <a href="/">GitHub</a></animated.li>
+                        <animated.li style={{ opacity: opacityOne.to(v => v), transform: animationOne.to(v => `translateX(${v}px)`)}}> <a href="https://github.com/rajprogrammerbd/">GitHub</a></animated.li>
                         <animated.li style={{ opacity: opacityTwo.to(v => v), transform: animationTwo.to(v => `translateX(${v}px)`)}}> <a href="/">Linkedin</a></animated.li>
                         <animated.li style={{ opacity: opacityThree.to(v => v), transform: animationThree.to(v => `translateX(${v}px)`)}}> <a href="">Twitter</a></animated.li>
                         <animated.li style={{ opacity: opacityFour.to(v => v), transform: animationFour.to(v => `translateX(${v}px)`)}}> <a href="/">StackOverflow</a></animated.li>

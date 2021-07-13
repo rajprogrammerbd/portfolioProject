@@ -5,13 +5,13 @@ import { useInView } from 'react-intersection-observer';
 import styles from "./../stylesheets/projects.module.scss";
 import * as d3 from "d3-ease";
 
-function Projects({ colors }) {
+function Projects({ colors, showError }) {
 
     const [ state, setState ] = useState({
         items: [
             { id: 1, name: "Stopwatch", img: "/stopwatch.JPG", hover: false, technology: "Webpack", link: "https://rajprogrammerbd.github.io/stopwatch/" },
             { id: 2, name: "Web-Timer", img: "/Web_timer.jpg", hover: false, technology: "ReactJS", link: 'https://rajprogrammerbd.github.io/web-timer/' },
-            { id: 3, name: "Money Heist", img: "/default.JPG", hover: false, technology: "NextJS", link: '/' },
+            { id: 3, name: "Money Heist", img: "/money_heist.jpg", hover: false, technology: "ReactJS", link: 'https://rajprogrammerbd.github.io/money_heist/' },
             { id: 4, name: "Custom Express Server", img: "/express_backend.JPG", hover: false, technology: "ExpressJS", link: "https://github.com/rajprogrammerbd/custom-backend" }
         ]
     });
@@ -162,6 +162,11 @@ function Projects({ colors }) {
         }
     });
 
+    const fn = e => {
+        e.preventDefault();
+        showError('This section is currently in-progress work');
+    }
+
     return (
         <Fragment>
             <div className={styles.project_container}>
@@ -202,7 +207,7 @@ function Projects({ colors }) {
                     </div>
                 </animated.div>
 
-                <Link href="/"><animated.a className={styles.endText} style={{ backgroundColor: mainBackgroundColor, transform: scaleUP.to(v => `scale(${v})`) }} onMouseDown={() => setDiscoverBtn(true)} onMouseLeave={() => setDiscoverBtn(false)}>Discover all projects</animated.a></Link>
+                <Link href="/"><animated.a className={styles.endText} style={{ backgroundColor: mainBackgroundColor, transform: scaleUP.to(v => `scale(${v})`) }} onMouseDown={() => setDiscoverBtn(true)} onMouseLeave={() => setDiscoverBtn(false)} onClick={e => fn(e)}>Discover all projects</animated.a></Link>
             </div>
         </Fragment>
     );

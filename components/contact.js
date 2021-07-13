@@ -1,7 +1,6 @@
 import styles from "./../stylesheets/contact.module.scss";
 
 function Contact({ colors }) {
-    console.log(colors);
     const mainBackgroundColor = ( colors.textColor === "black" ? "#ff4700" : colors.backgroundColor === "#fe4c78" ? "#8ae4ff" : colors.backgroundColor === "#7833C2" ? "#69f0ae" : colors.backgroundColor === "#561d5e" ? "#6c63ff" : colors.backgroundColor === "#7852ff" ? "#00c4ff" : colors.textColor );
     const mainContactBackground =  (colors.backgroundColor === "#fe4c78" ? "#f5164d" : colors.backgroundColor === "#7833C2" ? "#341161" : colors.backgroundColor === "#561d5e" ? "rgb(77 69 208)" : colors.backgroundColor === "#7852ff" ? "rgb(59 37 136)" : "#191919");
 
@@ -18,7 +17,7 @@ function Contact({ colors }) {
 
                     <div className={styles.right}>
                         <h3>Find Raj elsewhere</h3>
-                        <hr width="120px" />
+                        <hr className={styles.bars} />
                         <ul>
                             <li><a href="https://www.linkedin.com/in/rajprogrammerbd/">Linkedin</a></li>
                             <li><a href="https://twitter.com/rajprogrammerbd">Twitter</a></li>
