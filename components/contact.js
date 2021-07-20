@@ -1,4 +1,5 @@
-import styles from "./../stylesheets/contact.module.scss";
+import styles from "./../styles/contact.module.scss";
+import Link from "next/link";
 
 function Contact({ colors }) {
     const mainBackgroundColor = ( colors.textColor === "black" ? "#ff4700" : colors.backgroundColor === "#fe4c78" ? "#8ae4ff" : colors.backgroundColor === "#7833C2" ? "#69f0ae" : colors.backgroundColor === "#561d5e" ? "#6c63ff" : colors.backgroundColor === "#7852ff" ? "#00c4ff" : colors.textColor );
@@ -19,10 +20,10 @@ function Contact({ colors }) {
                         <h3>Find Raj elsewhere</h3>
                         <hr className={styles.bars} />
                         <ul>
-                            <li><a href="https://www.linkedin.com/in/rajprogrammerbd/">Linkedin</a></li>
-                            <li><a href="https://twitter.com/rajprogrammerbd">Twitter</a></li>
-                            <li><a href="https://rajprogrammerbd.medium.com/">Medium</a></li>
-                            <li><a href="https://stackoverflow.com/users/10596051/raj-dutta?tab=profile">Stackoverflow</a></li>
+                            <li><Link href="https://www.linkedin.com/in/rajprogrammerbd/"><a>Linkedin</a></Link></li>
+                            <li><Link href="https://twitter.com/rajprogrammerbd"><a>Twitter</a></Link></li>
+                            <li><Link href="https://rajprogrammerbd.medium.com/"><a>Medium</a></Link></li>
+                            <li><Link href="https://stackoverflow.com/users/10596051/raj-dutta?tab=profile"><a>Stackoverflow</a></Link></li>
                         </ul>
                     </div>
                 </div>

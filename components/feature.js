@@ -1,4 +1,4 @@
-import styles from "./../stylesheets/feature.module.scss";
+import styles from "./../styles/feature.module.scss";
 import { useState, useEffect } from "react";
 import { CgWebsite } from "react-icons/cg";
 import { MdDeveloperMode } from "react-icons/md";

@@ -1,7 +1,9 @@
-import styles from "./../stylesheets/aboutMe.module.scss";
+import styles from "./../styles/aboutMe.module.scss";
 import { useState, useEffect } from "react";
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from "react-spring";
+import Image from 'next/image';
+import aboutImg from "./../public/undraw_about_me_wa29.svg";
 import * as d3 from "d3-ease";
 
 const AboutME = ({ colors }) => {
@@ -49,7 +51,7 @@ const AboutME = ({ colors }) => {
                         <animated.p ref={aboutMeRef} style={{ transform: topX.to(v => `translateY(${v}px)`), opacity: opacityX.to(v => v) }} className={styles.left_p}>Hi there, I'm an enthusiastic, energetic and self-motivated person. For over 2 years, I put myself plunge within web technologies and got knowledge about different aspects of web-based technology. Building web-based applications using Node js, JavaScript, and Python. With knowledge of SQL and NoSQL database, I have got, the experience of building more complex applications. My knowledge extends and spanning to problem-solving and working with data structure &amp; algorithms. &#128512; &#128516; &#128525; &#128151;</animated.p>
                     </div>
                     <div className={styles.right}>
-                        <img className={styles.right_img} src="/undraw_about_me_wa29.svg" alt="about me text" />
+                        <Image className={styles.right_img} src={aboutImg} alt="about me text" />
                     </div>
                 </div>
             </div>

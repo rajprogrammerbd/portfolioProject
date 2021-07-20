@@ -1,6 +1,6 @@
 import { AiOutlineBgColors } from "react-icons/ai";
 import { IoIosCloseCircleOutline } from "react-icons/io";
-import styles from "./../stylesheets/backgroundChanger.module.scss";
+import styles from "./../styles/backgroundChanger.module.scss";
 import { useSpring, animated } from "react-spring";
 import { useState } from "react";
 import * as d3 from "d3-ease";

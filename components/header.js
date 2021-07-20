@@ -1,8 +1,9 @@
-import styles from "./../stylesheets/header.module.scss";
+import styles from "./../styles/header.module.scss";
 import { useEffect, useState } from "react";
 import ReactRotatingText from 'react-rotating-text';
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from "react-spring";
+import Link from 'next/link';
 import * as d3 from "d3-ease";
 
 function Header({ colors }) {
@@ -141,7 +142,7 @@ function Header({ colors }) {
         <>
             <header className={styles.header_main} ref={headerRef}>
                 <div className={styles.header_top}>
-                    <a href="/" style={{ color: ( colors.textColor !== "black" ) ? colors.textColor : "#ff4700" }} className={styles.main_title_link}>R<span style={{ color: ( colors.backgroundColor === "#fe4c78" ? "#8ae4ff" : colors.backgroundColor === "#7833C2" ? "#69f0ae" : colors.backgroundColor === "#561d5e" ? "#6c63ff" : colors.backgroundColor === "#7852ff" ? "#00c4ff" : null ) }}>A</span>J</a>
+                    <Link href="/" ><a style={{ color: ( colors.textColor !== "black" ) ? colors.textColor : "#ff4700" }} className={styles.main_title_link}>R<span style={{ color: ( colors.backgroundColor === "#fe4c78" ? "#8ae4ff" : colors.backgroundColor === "#7833C2" ? "#69f0ae" : colors.backgroundColor === "#561d5e" ? "#6c63ff" : colors.backgroundColor === "#7852ff" ? "#00c4ff" : null ) }}>A</span>J</a></Link>
                 </div>
                 <div className={styles.header_bottom} style={{ height: `${state.screenHeight / 1.5}px` }}>
                     <div className={styles.bottom_left}>

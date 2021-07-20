@@ -1,8 +1,7 @@
 import { Fragment, useState, useEffect } from "react";
-import Link from 'next/link';
 import { useSpring, animated } from "react-spring";
 import { useInView } from 'react-intersection-observer';
-import styles from "./../stylesheets/projects.module.scss";
+import styles from "./../styles/projects.module.scss";
 import * as d3 from "d3-ease";
 
 function Projects({ colors, showError }) {
@@ -207,7 +206,7 @@ function Projects({ colors, showError }) {
                     </div>
                 </animated.div>
 
-                <Link href="/"><animated.a className={styles.endText} style={{ backgroundColor: mainBackgroundColor, transform: scaleUP.to(v => `scale(${v})`) }} onMouseDown={() => setDiscoverBtn(true)} onMouseLeave={() => setDiscoverBtn(false)} onClick={e => fn(e)}>Discover all projects</animated.a></Link>
+                <animated.a href="/" className={styles.endText} style={{ backgroundColor: mainBackgroundColor, transform: scaleUP.to(v => `scale(${v})`) }} onMouseDown={() => setDiscoverBtn(true)} onMouseLeave={() => setDiscoverBtn(false)} onClick={e => fn(e)}>Discover all projects</animated.a>
             </div>
         </Fragment>
     );

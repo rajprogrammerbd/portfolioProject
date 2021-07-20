@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useSpring, animated, to } from "react-spring";
-import styles from "./../stylesheets/sidebar.module.scss";
+import styles from "./../styles/sidebar.module.scss";
 import * as d3 from "d3-ease";
+import Link from 'next/link';
 
 const Sidebar = ({ colors }) => {
     const [ state, setState ] = useState({ openSidebar: false });
@@ -150,14 +151,14 @@ const Sidebar = ({ colors }) => {
             </span>
             <animated.div className={styles.fullScreenHover} style={{ right: slideValue.to(v => `${v}%`) }}>
                 <animated.div className={styles.hover} style={{ opacity: completeHover.to(v => v) }}>
-                    <h2 className={styles.mainTitle}><a href="/">RAJ</a></h2>
+                    <h2 className={styles.mainTitle}><Link href="/"><a>RAJ</a></Link></h2>
                     
                     <ul>
-                        <animated.li style={{ opacity: opacityOne.to(v => v), transform: animationOne.to(v => `translateX(${v}px)`)}}> <a href="https://github.com/rajprogrammerbd/">GitHub</a></animated.li>
-                        <animated.li style={{ opacity: opacityTwo.to(v => v), transform: animationTwo.to(v => `translateX(${v}px)`)}}> <a href="/">Linkedin</a></animated.li>
-                        <animated.li style={{ opacity: opacityThree.to(v => v), transform: animationThree.to(v => `translateX(${v}px)`)}}> <a href="">Twitter</a></animated.li>
-                        <animated.li style={{ opacity: opacityFour.to(v => v), transform: animationFour.to(v => `translateX(${v}px)`)}}> <a href="/">StackOverflow</a></animated.li>
-                        <animated.li style={{ opacity: opacityFive.to(v => v), transform: animationFive.to(v => `translateX(${v}px)`)}}> <a href="/">Medium</a></animated.li>
+                        <animated.li style={{ opacity: opacityOne.to(v => v), transform: animationOne.to(v => `translateX(${v}px)`)}}><Link href="https://github.com/rajprogrammerbd/"><a>GitHub</a></Link></animated.li>
+                        <animated.li style={{ opacity: opacityTwo.to(v => v), transform: animationTwo.to(v => `translateX(${v}px)`)}}><Link href="https://www.linkedin.com/in/rajprogrammerbd/"><a>Linkedin</a></Link></animated.li>
+                        <animated.li style={{ opacity: opacityThree.to(v => v), transform: animationThree.to(v => `translateX(${v}px)`)}}><Link href="https://twitter.com/rajprogrammerbd"><a>Twitter</a></Link></animated.li>
+                        <animated.li style={{ opacity: opacityFour.to(v => v), transform: animationFour.to(v => `translateX(${v}px)`)}}><Link href="https://stackoverflow.com/users/10596051/raj-dutta"><a>StackOverflow</a></Link></animated.li>
+                        <animated.li style={{ opacity: opacityFive.to(v => v), transform: animationFive.to(v => `translateX(${v}px)`)}}><Link href="https://rajprogrammerbd.medium.com/"><a>Medium</a></Link></animated.li>
                     </ul>
 
                 </animated.div>

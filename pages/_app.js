@@ -3,7 +3,7 @@ import BackgroundChanger from "./../components/backgroundChanger";
 import Sidebar from "./../components/sidebar";
 import { useSpring, animated } from "react-spring";
 import * as d3 from "d3-ease";
-import "./../stylesheets/global.scss";
+import "./../styles/global.scss";
 
 function MyApp({ Component, pageProps }) {
     const [ state, setState ] = useState({

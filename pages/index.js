@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { AiFillCloseCircle } from "react-icons/ai";
 import { animated, useSpring } from 'react-spring';
 import Header from "./../components/header";
-import AboutME from "./../components/aboutme";
+import AboutME from "./../components/aboutMe";
 import Projects from "./../components/projects";
 import Feature from "./../components/feature";
 import Contact from "./../components/contact";
@@ -54,7 +54,6 @@ const Home = props => {
             <Projects colors={colors} showError={showError} />
             <Feature colors={colors} />
             <Contact colors={colors} />
-
             <animated.div className="info" style={{ left: left.to(v => `${v}px`), backgroundColor: mainBackgroundColor }}>
                 <div className="left">
                     <p>{state.text}</p>
