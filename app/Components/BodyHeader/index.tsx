@@ -9,7 +9,6 @@ import { FaLinkedin } from "react-icons/fa6";
 import { TypeAnimation } from 'react-type-animation';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/lib/store';
-import profilePicture from "@/public/profile-picture.jpg";
 import { IBodyContainerProps } from '@/types/Home';
 import Navbar from '../Navbar';
 
@@ -130,8 +129,8 @@ const IconBtn = styled.a`
 `;
 
 const ProfilePictureImg = styled(Image)`
-    max-width: 25rem;
-    height: auto;
+    max-width: 25rem !important;
+    height: auto !important;
     border: 4px solid #3576d3;
     transform: rotate(7deg);
     border-radius: 40px;
@@ -246,7 +245,9 @@ function BodyHeader(props: IBodyContainerProps) {
                 transition={{
                   ease: 'easeInOut'
                 }}
-                src={profilePicture}
+                src="/profile-picture.jpg"
+                width={400}
+                height={400}
                 alt="profile picture"
               />
             </RightHeaderContainer>
