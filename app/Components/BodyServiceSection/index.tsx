@@ -6,14 +6,14 @@ import { BodyServiceState, IServiceItem } from "@/types/Home";
 import { BodyServiceStateLists } from "@/data/Home";
 
 const MainWrapper = styled.div`
-    min-height: 100vh;
-    background-color: #050709;
-    padding: 1.5rem 0.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+  background-color: #050709;
+  padding: 1.5rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 43rem;
 `;
 
 const MainService = styled.div`
