@@ -1,4 +1,4 @@
-import { HomepageState, IServiceItem, NavList } from "@/types/Home";
+import { HomepageState, IServiceItem, ListOfPortfolioOptionsType, NavList, RecentWorksTypes } from "@/types/Home";
 
 type Colors = HomepageState['color'];
 
@@ -29,18 +29,14 @@ export const ListOfNavbar: NavList[] = [
     },
     {
         id: 2,
-        name: 'About'
-    },
-    {
-        id: 3,
         name: 'Portfolio'
     },
     {
-        id: 4,
+        id: 3,
         name: 'Blogs'
     },
     {
-        id: 5,
+        id: 4,
         name: 'Contact'
     }
 ];
@@ -61,4 +57,39 @@ export const BodyServiceStateLists: IServiceItem[] = [
         title: 'Mobile App Development',
         paragraph: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
     }
-]
+];
+
+export const ListOfPortfolioOptions: ListOfPortfolioOptionsType[] = [
+    {
+        id: 0,
+        name: 'All'
+    },
+    {
+        id: 1,
+        name: 'UI Design'
+    },
+    {
+        id: 2,
+        name: 'Web App'
+    }
+];
+
+
+export const ListOfProjectUIDesign: RecentWorksTypes[] = [];
+export const ListOfProjectWebApp: RecentWorksTypes[] = [
+    {
+        id: 0,
+        projectId: 2,
+        name: 'Connect-Chat',
+        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+        url: '/connect-chat.jpg'
+    }
+];
+
+export const ListOfProjectAll: RecentWorksTypes[] = [...ListOfProjectUIDesign, ...ListOfProjectWebApp];
+
+export const TotalListOfProjects: RecentWorksTypes[][] = [
+    ListOfProjectAll,
+    ListOfProjectUIDesign,
+    ListOfProjectWebApp
+];

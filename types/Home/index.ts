@@ -48,3 +48,24 @@ export interface BodyServiceState {
   lists: IServiceItem[];
   activeId: string;
 }
+
+export type ListOfPortfolioOptionsType = {
+  id: number;
+  name: string;
+}
+
+export interface IPortfolioState {
+  lists: ListOfPortfolioOptionsType[];
+  isActive: number;
+  TotalListOfProjects: RecentWorksTypes[][];
+  hover: boolean;
+  hoveredID: null | number;
+}
+
+export interface RecentWorksTypes {
+  projectId: number;
+  id: number;
+  name: string;
+  description: string;
+  url: string;
+}

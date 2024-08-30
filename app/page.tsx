@@ -1,14 +1,15 @@
 'use client';
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { RootState } from "@/lib/store";
-import { changeWebLoadedOnce } from "@/lib/reducers/HomeReducer";
-import { ListOfNavbar } from "@/data/Home";
-import { HomeState } from "@/types/Home";
 import { useDispatch, useSelector } from "react-redux";
 import HeaderAnimatedBox from "./Components/HeaderAnimatedBox";
-import BodyHeader from "./Components/BodyHeader";
 import BodyServiceSection from "./Components/BodyServiceSection";
+import BodyHeader from "./Components/BodyHeader";
+import Portfolio from "./Components/Portfolio";
+import { changeWebLoadedOnce } from "@/lib/reducers/HomeReducer";
+import { HomeState } from "@/types/Home";
+import { ListOfNavbar } from "@/data/Home";
+import { RootState } from "@/lib/store";
 
 // Styled-Components
 const WrapperAppBox = styled.div<{ $backgroundColor: string; $textColor: string }>`
@@ -19,7 +20,7 @@ const WrapperAppBox = styled.div<{ $backgroundColor: string; $textColor: string 
   flex-direction: column;
   align-items: center;
   background-color: ${prop => prop.$backgroundColor === '#050709' ? 'rgb(2,0,36)' : prop.$backgroundColor};
-  ${prop => prop.$backgroundColor === '#050709' && "linear-gradient(51deg, rgba(2,0,36,1) 0%, rgba(73,73,73,1) 0%, rgba(77,86,94,1) 29%, rgba(45,64,83,1) 55%, rgba(33,44,55,1) 85%, rgba(21,31,41,1) 100%);"}
+  background: ${prop => prop.$backgroundColor === '#050709' && "linear-gradient(51deg, rgba(2,0,36,1) 0%, rgba(73,73,73,1) 0%, rgba(77,86,94,1) 29%, rgba(45,64,83,1) 55%, rgba(33,44,55,1) 85%, rgba(21,31,41,1) 100%);"}
   color: ${prop => prop.$textColor};
   position: relative;
 `;
@@ -64,6 +65,7 @@ export default function Home() {
         {/* <P5Sketch /> */}
         <BodyHeader lists={state.lists} />
         <BodyServiceSection />
+        <Portfolio />
       </WrapperAppBox>
     </>
   );
