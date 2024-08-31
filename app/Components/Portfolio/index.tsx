@@ -83,7 +83,7 @@ const ListOfOptionBG = styled.div`
 
 const ListOfProjectsContainer = styled.div`
     margin-top: 4rem;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
     width: 100%;
 `;
 
