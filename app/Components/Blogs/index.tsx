@@ -13,7 +13,7 @@ const MainWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  min-height: 43rem;
+  min-height: auto;
 `;
 
 const MainService = styled.div`
@@ -21,6 +21,7 @@ const MainService = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 5rem;
 
     @media only screen and (max-width: 1400px) {
       width: 90%;
