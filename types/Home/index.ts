@@ -69,3 +69,17 @@ export interface RecentWorksTypes {
   description: string;
   url: string;
 }
+
+export type BlogPostType = {
+  id: number;
+  title: string;
+  description: string;
+  img: string;
+  posted_date: string;
+  category: string;
+  post_link: string;
+}
+
+export interface IBlogsState {
+  lists: BlogPostType[];
+}

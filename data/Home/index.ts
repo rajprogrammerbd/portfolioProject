@@ -1,4 +1,4 @@
-import { HomepageState, IServiceItem, ListOfPortfolioOptionsType, NavList, RecentWorksTypes } from "@/types/Home";
+import { BlogPostType, HomepageState, IServiceItem, ListOfPortfolioOptionsType, NavList, RecentWorksTypes } from "@/types/Home";
 
 type Colors = HomepageState['color'];
 
@@ -92,4 +92,16 @@ export const TotalListOfProjects: RecentWorksTypes[][] = [
     ListOfProjectAll,
     ListOfProjectUIDesign,
     ListOfProjectWebApp
+];
+
+export const BlogPosts: BlogPostType[] = [
+    {
+        id: 0,
+        title: 'JavaScript Engine & Javascript Is an Interpreted Language?',
+        description: 'Javascript is a high-level programming language. Like every programming language...',
+        img: '/js-logo.jpg',
+        posted_date: 'Dec 2, 2020',
+        category: 'IT Explore',
+        post_link: 'https://medium.com/swlh/javascript-engine-javascript-is-an-interpreted-language-81586e9688fd'
+    }
 ];

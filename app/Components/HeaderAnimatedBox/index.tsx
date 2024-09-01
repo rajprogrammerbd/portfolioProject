@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 const AnimationStyledBox = styled.div`
     background-color: black;
     width: 100%;
-    min-height: 100vh;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
