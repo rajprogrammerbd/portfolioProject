@@ -7,10 +7,11 @@ import BodyServiceSection from "./Components/BodyServiceSection";
 import BodyHeader from "./Components/BodyHeader";
 import Portfolio from "./Components/Portfolio";
 import { changeWebLoadedOnce } from "@/lib/reducers/HomeReducer";
+import Blogs from "./Components/Blogs";
+import ContactSection from "./Components/ContactSection";
 import { HomeState } from "@/types/Home";
 import { ListOfNavbar } from "@/data/Home";
 import { RootState } from "@/lib/store";
-import Blogs from "./Components/Blogs";
 
 // Styled-Components
 const WrapperAppBox = styled.div<{ $backgroundColor: string; $textColor: string }>`
@@ -68,6 +69,7 @@ export default function Home() {
         <BodyServiceSection />
         <Portfolio />
         <Blogs />
+        <ContactSection />
       </WrapperAppBox>
     </>
   );
