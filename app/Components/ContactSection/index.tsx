@@ -1,4 +1,6 @@
-import { FormEvent } from "react";
+import { error } from "console";
+import { useCallback } from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { BiSolidPhoneCall } from "react-icons/bi";
 import { IoMailOpen } from "react-icons/io5";
 import styled from "styled-components";
@@ -131,8 +133,15 @@ const FormInput = styled.input`
         text-transform: uppercase;
         font-weight: 300;
         background-color: #fff;
+        cursor: pointer;
         margin-top: 2rem;
     }
+`;
+
+const ErrorMessage = styled.p`
+    color: red;
+    font-family: inherit;
+    font-size: 0.9rem;
 `;
 
 const FormTextArea = styled.textarea`
@@ -152,11 +161,21 @@ const ContentBody = styled.div`
     gap: 5rem;
 `;
 
+interface IFormInput {
+    subject: string;
+    message: string;
+}
+
 const ContactSection = () => {
-    const handleSubmit = (e: FormEvent) => {
-        e.preventDefault();
-        console.log('handleSubmit called');
-    }
+    const { register, handleSubmit, formState: { errors } } = useForm<IFormInput>();
+
+    const handleSubmitted: SubmitHandler<IFormInput> = useCallback((data: IFormInput) => {
+        const recipient = 'rajkpi@outlook.com';
+        const { message, subject } = data;
+
+        const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+        window.location.href = mailtoLink;
+    }, []);
 
     return (
         <MainWrapper>
@@ -193,15 +212,17 @@ const ContactSection = () => {
                     </LeftContactSection>
 
                     <RightContactSection>
-                        <FormBody onSubmit={handleSubmit}>
+                        <FormBody onSubmit={handleSubmit(handleSubmitted)}>
                             <FormElement>
                                 <FormLabel htmlFor="subject">Subject:</FormLabel>
-                                <FormInput type="text" name="subject" id="subject" placeholder="Enter your Subject" />
+                                <FormInput type="text" {...register('subject', { required: true })} id="subject" placeholder="Enter your Subject" />
+                                {errors.subject && <ErrorMessage>Subject is Required</ErrorMessage>}
                             </FormElement>
 
                             <FormElement>
                                 <FormLabel htmlFor="message">Message:</FormLabel>
-                                <FormTextArea id="message" rows={5} cols={30} name="message" placeholder="Enter your Subject" />
+                                <FormTextArea id="message" rows={5} cols={30} {...register('message', { required: true })} placeholder="Enter your Subject" />
+                                {errors.message && <ErrorMessage>Message is Required</ErrorMessage>}
                             </FormElement>
 
                             <FormInput type="submit" value="Send Me Message" />
