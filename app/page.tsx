@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 import HeaderAnimatedBox from "./Components/HeaderAnimatedBox";
@@ -33,7 +33,6 @@ export default function Home() {
     }
   });
 
-  const isLoaded = useSelector((root: RootState) => root.homepage.loaded);
   const bgColor = useSelector((root: RootState) => root.homepage.color.bgColor);
   const { color1 } = useSelector((root: RootState) => root.homepage.color.textColors);
 
@@ -41,12 +40,6 @@ export default function Home() {
     <>
       <HeaderAnimatedBox color1={color1} />
       <WrapperAppBox $backgroundColor={bgColor} $textColor={color1}>
-        {/* Loading Animation on First Render */}
-        {/* <HeaderAnimatedBox color1={color1} /> */}
-
-        {/* Render The application Data */}
-
-        {/* <P5Sketch /> */}
         <BodyHeader lists={state.lists} />
         <BodyServiceSection />
         <Portfolio />
