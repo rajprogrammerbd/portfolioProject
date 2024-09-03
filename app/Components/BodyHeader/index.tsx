@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Link from 'next/link';
 import Image from 'next/image';
 import styled from "styled-components";
@@ -9,7 +10,7 @@ import { FaLinkedin } from "react-icons/fa6";
 import { TypeAnimation } from 'react-type-animation';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/lib/store';
-import { IBodyContainerProps } from '@/types/Home';
+import { IBodyContainerProps, IBodyContainerState } from '@/types/Home';
 import Navbar from '../Navbar';
 
 const MainWrapperBody = styled.div`
@@ -25,8 +26,9 @@ const MainWrapperBody = styled.div`
     z-index: 50;
   
 
-  @media only screen and (max-width: 1400px) {
-    width: 90%;
+  @media only screen and (max-width: 1430px) {
+    width: 95%;
+    padding: 0rem;
   }
 `;
 
@@ -57,12 +59,27 @@ const HeaderContactBtn = styled.button`
 `;
 
 const HeaderContainer = styled.div`
-    width: 100%;
-    height: auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 40px;
-    align-items: center;
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+  align-items: center;
+
+  @media only screen and (max-width: 1430px) {
+    grid-template-columns: 1.86fr 1fr;
+  }
+
+  @media only screen and (max-width: 1363px) {
+    grid-template-columns: 3.4fr 2fr;
+  }
+
+  @media only screen and (max-width: 940px) {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 15px;
+  }
 `;
 
 const LeftHeaderContainerTitle = styled.h3`
@@ -72,6 +89,10 @@ const LeftHeaderContainerTitle = styled.h3`
   font-size: 1.8rem;
   letter-spacing: 9px;
   line-height: 17px;
+
+  @media only screen and (max-width: 1173px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const LeftHeaderContainerSkillsTitle = styled.p`
@@ -81,6 +102,10 @@ const LeftHeaderContainerSkillsTitle = styled.p`
   background: linear-gradient(51deg, rgba(53,118,211,1) 0%, rgba(68,134,226,1) 30%, rgba(126,155,193,1) 53%, rgba(158,183,214,1) 72%, rgba(236,236,236,1) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  @media only screen and (max-width: 1173px) {
+    font-size: 3rem;
+  }
 `;
 
 const LeftHeaderContainerSkillsPara = styled.p`
@@ -90,6 +115,14 @@ const LeftHeaderContainerSkillsPara = styled.p`
   font-weight: 100;
   line-height: 2rem;
   margin-top: 1rem;
+
+  @media only screen and (max-width: 1110px) {
+    width: 34rem;
+  }
+
+  @media only screen and (max-width: 940px) {
+    width: auto;
+  }
 `;
 
 const LeftHeaderContainerSkillButtons = styled.div`
@@ -132,8 +165,20 @@ const ProfilePictureImg = styled(Image)`
     max-width: 25rem !important;
     height: auto !important;
     border: 4px solid #3576d3;
-    transform: rotate(7deg);
+    // transform: rotate(7deg);
     border-radius: 40px;
+
+    @media only screen and (max-width: 1297px) {
+      max-width: 23rem !important;
+    }
+
+    @media only screen and (max-width: 1173px) {
+      max-width: 19rem !important;
+    }
+
+    @media only screen and (max-width: 940px) {
+      max-width: 15rem !important;
+    }
 `;
 
 const ProfilePictureAnimated = motion(ProfilePictureImg);
@@ -154,14 +199,55 @@ const RightHeaderBorderBox = styled.div`
     border-radius: 50px;
     z-index: -50;
     transform: skew(350deg, 359deg);
+
+    @media only screen and (max-width: 1297px) {
+      width: 24rem;
+      height: 25.5rem;
+    }
+
+    @media only screen and (max-width: 1257px) {
+      transform: none;
+    }
+
+    @media only screen and (max-width: 1173px) {
+      width: 20rem;
+      height: 20.5rem;
+    }
+
+    @media only screen and (max-width: 940px) {
+      width: 16rem;
+      height: 16.5rem;
+    }
 `;
 
 const RightHeaderBorderBoxAnime = motion(RightHeaderBorderBox);
 const HeaderContactBtnAnime = motion(HeaderContactBtn);
 
 function BodyHeader(props: IBodyContainerProps) {
+    const [state, setState] = useState<IBodyContainerState>(() => {
+      const width = global.window && global.window.innerWidth;
+      const height = global.window && global.window.innerHeight;
+  
+      return {
+        width: width,
+        height: height
+      }
+    });
+
     const { lists } = props;
     const isLoaded = useSelector((root: RootState) => root.homepage.loaded);
+
+    useEffect(() => {
+      const fn = () => {
+        setState({ width: window.innerWidth, height: window.innerHeight });
+      }
+  
+      window.addEventListener('resize', fn);
+  
+      return () => {
+        window.removeEventListener('resize', fn);
+      }
+    }, []);
 
     return (
         <MainWrapperBody>
@@ -231,7 +317,7 @@ function BodyHeader(props: IBodyContainerProps) {
                   cursor: 'pointer'
                 }}
                 animate={{
-                  rotate: '7deg',
+                  rotate: (state.width <= 1257) ? '0deg' : '7deg',
                   transition: {
                     duration: 0.8,
                     delay: !isLoaded ? 3.5 : 0,

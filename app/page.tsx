@@ -1,12 +1,11 @@
 'use client';
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import HeaderAnimatedBox from "./Components/HeaderAnimatedBox";
 import BodyServiceSection from "./Components/BodyServiceSection";
 import BodyHeader from "./Components/BodyHeader";
 import Portfolio from "./Components/Portfolio";
-import { changeWebLoadedOnce } from "@/lib/reducers/HomeReducer";
 import Blogs from "./Components/Blogs";
 import ContactSection from "./Components/ContactSection";
 import { HomeState } from "@/types/Home";
@@ -28,32 +27,15 @@ const WrapperAppBox = styled.div<{ $backgroundColor: string; $textColor: string 
 `;
 
 export default function Home() {
-  const [state, setState] = useState<HomeState>(() => {
+  const [state, _] = useState<HomeState>(() => {
     return {
       lists: ListOfNavbar
     }
   });
 
-  const dispatch = useDispatch();
   const isLoaded = useSelector((root: RootState) => root.homepage.loaded);
   const bgColor = useSelector((root: RootState) => root.homepage.color.bgColor);
   const { color1 } = useSelector((root: RootState) => root.homepage.color.textColors);
-
-  useEffect(() => {
-    // This hook handled the loading animation play onces.
-    const timeFn = () => {
-      if (!isLoaded) {
-        dispatch(changeWebLoadedOnce());
-      }
-    }
-
-    const timed = setTimeout(timeFn, 1500);
-    
-
-    return () => {
-      window.clearTimeout(timed);
-    }
-  }, []);
 
   return (
     <>

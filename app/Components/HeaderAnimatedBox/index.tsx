@@ -1,11 +1,12 @@
 'use client';
 import { useState, useEffect } from "react";
 import styled from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
 import { ThreeDots } from 'react-loader-spinner'
+import { changeWebLoadedOnce } from "@/lib/reducers/HomeReducer";
 import { motion } from "framer-motion";
 import { HeaderAnimatedBoxState, IHeaderProps } from "@/types/Home";
 import { RootState } from "@/lib/store";
-import { useSelector } from "react-redux";
 
 const AnimationStyledBox = styled.div`
     background-color: black;
@@ -25,6 +26,7 @@ const AnimationStyledBox = styled.div`
 const AnimatedBox = motion(AnimationStyledBox);
 
 const HeaderAnimatedBox = (props: IHeaderProps) => {
+  const dispatch = useDispatch();
   const [state, setState] = useState<HeaderAnimatedBoxState>(() => {
     const width = global.window && global.window.innerWidth;
     const height = global.window && global.window.innerHeight;
@@ -34,6 +36,7 @@ const HeaderAnimatedBox = (props: IHeaderProps) => {
       height: height
     }
   });
+
   const { color1 } = props;
   const isLoaded = useSelector((root: RootState) => root.homepage.loaded);
 
@@ -49,9 +52,24 @@ const HeaderAnimatedBox = (props: IHeaderProps) => {
     }
   }, []);
 
+  useEffect(() => {
+    // This hook handled the loading animation play onces.
+    const timeFn = () => {
+      if (!isLoaded) {
+        dispatch(changeWebLoadedOnce());
+      }
+    }
+
+    const timed = setTimeout(timeFn, 1500);
+    
+
+    return () => {
+      window.clearTimeout(timed);
+    }
+  }, []);
+
   return (
-      <AnimatedBox
-      layout
+    <AnimatedBox
       animate={{ opacity: 1, y: isLoaded ? -(state.height) : 0 }}
       transition={{ duration: 1.6, ease: 'circIn' }}
     >

@@ -33,6 +33,11 @@ export interface IBodyContainerProps {
   lists: NavList[];
 }
 
+export interface IBodyContainerState {
+  width: number;
+  height: number;
+}
+
 export interface HeaderAnimatedBoxState {
   width: number;
   height: number;
