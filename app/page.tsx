@@ -33,11 +33,6 @@ export default function Home() {
     }
   });
 
-  useEffect(() => {
-    window.alert(`clientWidth - ${window.innerWidth}`);
-    window.alert(`clientHeight - ${window.innerHeight}`);
-  }, []);
-
   const bgColor = useSelector((root: RootState) => root.homepage.color.bgColor);
   const { color1 } = useSelector((root: RootState) => root.homepage.color.textColors);
 
