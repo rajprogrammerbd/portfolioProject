@@ -1,5 +1,5 @@
 'use client';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 import HeaderAnimatedBox from "./Components/HeaderAnimatedBox";
@@ -32,6 +32,11 @@ export default function Home() {
       lists: ListOfNavbar
     }
   });
+
+  useEffect(() => {
+    window.alert(`clientWidth - ${window.innerWidth}`);
+    window.alert(`clientHeight - ${window.innerHeight}`);
+  }, []);
 
   const bgColor = useSelector((root: RootState) => root.homepage.color.bgColor);
   const { color1 } = useSelector((root: RootState) => root.homepage.color.textColors);
