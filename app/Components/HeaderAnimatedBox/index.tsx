@@ -9,18 +9,18 @@ import { HeaderAnimatedBoxState, IHeaderProps } from "@/types/Home";
 import { RootState } from "@/lib/store";
 
 const AnimationStyledBox = styled.div`
-    background-color: black;
-    width: 100%;
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: fixed;
-    bottom: 0;
-    justify-content: center;
-    z-index: 100;
-    opacity: 1;
-    transform: translateY(0px);
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  width: 100dvw;
+  height: 100dvh;
+  max-height: 100dvh;
+  color: black;
+  z-index: 100;
 `;
 
 const AnimatedBox = motion(AnimationStyledBox);
@@ -70,7 +70,7 @@ const HeaderAnimatedBox = (props: IHeaderProps) => {
 
   return (
     <AnimatedBox
-      animate={{ opacity: 1, y: isLoaded ? -(state.height) : 0 }}
+      animate={{ y: isLoaded ? -(state.height) : 0 }}
       transition={{ duration: 1.6, ease: 'circIn' }}
     >
       <ThreeDots
