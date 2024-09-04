@@ -93,20 +93,27 @@ const ListOfProjectsUI = styled.ul`
     grid-template-columns: 2fr 2fr;
     grid-template-rows: minmax(28rem, 28rem);
     gap: 1rem;
+
+    @media only screen and (max-width: 1058px) {
+        grid-template-columns: 0.7fr;
+        justify-content: center;
+    }
 `;
 const ListOfProjectsLI = styled.li`
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 3rem;
     border-radius: 2rem;
     background-color: #43494f;
+    width: 35rem !important;
+    height: 25rem !important;
+    justify-content: flex-end;
 `;
 const ListOfProjectsLIImg = styled(Image)`
     position: absolute;
-    width: 85%;
-    height: 89%;
+    width: 90%;
+    height: auto;
 `;
 
 const ListOfProjectsLIDiv = styled.div`
