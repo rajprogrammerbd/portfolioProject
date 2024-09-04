@@ -1,5 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Moderustic:wght@300..800&display=swap');
 
+:root {
+  font-size: 16px;
+}
+
+@media screen and (max-width: 721px) {
+    :root {
+      font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 503px) {
+  :root {
+    font-size: 11px;
+  }
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
