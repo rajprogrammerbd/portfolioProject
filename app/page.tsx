@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 import HeaderAnimatedBox from "./Components/HeaderAnimatedBox";
@@ -41,10 +41,10 @@ export default function Home() {
       {/* <HeaderAnimatedBox color1={color1} /> */}
       <WrapperAppBox $backgroundColor={bgColor} $textColor={color1}>
         <BodyHeader lists={state.lists} />
-        <BodyServiceSection />
-        <Portfolio />
-        <Blogs />
-        <ContactSection />
+        {/* <BodyServiceSection /> */}
+        {/* <Portfolio /> */}
+        {/* <Blogs /> */}
+        {/* <ContactSection /> */}
       </WrapperAppBox>
     </>
   );

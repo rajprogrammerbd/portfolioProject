@@ -28,12 +28,12 @@ const AnimatedBox = motion(AnimationStyledBox);
 const HeaderAnimatedBox = (props: IHeaderProps) => {
   const dispatch = useDispatch();
   const [state, setState] = useState<HeaderAnimatedBoxState>(() => {
-    const width = global.window && global.window.innerWidth;
-    const height = global.window && global.window.innerHeight;
+    // const width = global.window && global.window.innerWidth;
+    // const height = global.window && global.window.innerHeight;
 
     return {
-      width: width,
-      height: height
+      width: 0,
+      height: 0
     }
   });
 
@@ -44,7 +44,8 @@ const HeaderAnimatedBox = (props: IHeaderProps) => {
     const fn = () => {
       setState({ width: window.innerWidth, height: window.innerHeight });
     }
-
+    
+    fn();
     window.addEventListener('resize', fn);
 
     return () => {

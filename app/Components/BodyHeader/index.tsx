@@ -1,3 +1,4 @@
+'use client';
 import { useState, useEffect } from "react";
 import Link from 'next/link';
 import Image from 'next/image';
@@ -7,11 +8,12 @@ import { FaTwitter } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { GoDownload } from "react-icons/go";
 import { FaLinkedin } from "react-icons/fa6";
+import { CiMenuFries } from "react-icons/ci";
 import { TypeAnimation } from 'react-type-animation';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/lib/store';
 import { IBodyContainerProps, IBodyContainerState } from '@/types/Home';
-import Navbar from '../Navbar';
+import NavContainerItems from "../NavContainerItems";
 
 const MainWrapperBody = styled.div`
     width: 1320px;
@@ -33,15 +35,16 @@ const MainWrapperBody = styled.div`
 `;
 
 const NavbarContainer = styled.div`
-  width: -webkit-fill-available;
-  width: -moz-available;
-  width: fill-available;
-  width: 100%;  
-  display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
-  grid-template-rows: auto;
-  position: absolute;
-  top: 2rem;
+    width: -webkit-fill-available;
+    width: -moz-available;
+    width: fill-available;
+    width: 100%;
+    display: flex;
+    position: absolute;
+    top: 2rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 `;
 
 const Title = styled(Link)`
@@ -49,13 +52,6 @@ const Title = styled(Link)`
   color: #e0e0e0;
   font-size: 1.7rem;
   cursor: pointer;
-`;
-
-const HeaderContactBtn = styled.button`
-  font-size: 1rem;
-  border-radius: 50px;
-  background-color: #3576d3;
-  color: #d7d7d7;
 `;
 
 const HeaderContainer = styled.div`
@@ -132,6 +128,10 @@ const LeftHeaderContainerSkillButtons = styled.div`
     align-items: center;
     justify-content: space-around;
     margin-top: 3rem;
+
+    @media only screen and (max-width: 1243px) {
+      width: 80%;
+    }
 `;
 
 const DownloadBtn = styled.button`
@@ -220,8 +220,17 @@ const RightHeaderBorderBox = styled.div`
     }
 `;
 
+const ContainerResponsiveNav = styled.div`
+  width: auto;
+  display: none;
+
+  @media only screen and (max-width: 940px) {
+    display: block;
+  }
+`;
+
 const RightHeaderBorderBoxAnime = motion(RightHeaderBorderBox);
-const HeaderContactBtnAnime = motion(HeaderContactBtn);
+
 
 function BodyHeader(props: IBodyContainerProps) {
     const [state, setState] = useState<IBodyContainerState>(() => {
@@ -229,19 +238,18 @@ function BodyHeader(props: IBodyContainerProps) {
       const height = global.window && global.window.innerHeight;
   
       return {
-        width: width,
-        height: height
+        width,
+        height
       }
     });
 
     const { lists } = props;
-    const isLoaded = useSelector((root: RootState) => root.homepage.loaded);
 
     useEffect(() => {
       const fn = () => {
         setState({ width: window.innerWidth, height: window.innerHeight });
       }
-  
+      fn();
       window.addEventListener('resize', fn);
   
       return () => {
@@ -253,17 +261,12 @@ function BodyHeader(props: IBodyContainerProps) {
         <MainWrapperBody>
           <NavbarContainer>
             <Title href="/">rajprogrammerbd</Title>
+              <ContainerResponsiveNav>
+                {/* <NavContainerItems lists={lists} /> */}
+                <CiMenuFries size={25} color="#e0e0e0" onClick={() => console.log('clicked on the icon')} />
+              </ContainerResponsiveNav>
 
-            <Navbar lists={lists} />
-
-            <HeaderContactBtnAnime
-              initial={{ scale: 1 }}
-              whileTap={{ scale: 0.95 }}
-              whileHover={{ color: '#fff' }}
-              transition={{ duration: 0.1 }}
-            >
-              Contact Me
-            </HeaderContactBtnAnime>
+              <NavContainerItems lists={lists} />
           </NavbarContainer>
 
           <HeaderContainer className="mt-7">
@@ -320,7 +323,7 @@ function BodyHeader(props: IBodyContainerProps) {
                   rotate: (state.width <= 1257) ? '0deg' : '7deg',
                   transition: {
                     duration: 0.8,
-                    delay: !isLoaded ? 3.5 : 0,
+                    delay: 0,
                     type: 'spring'
                   }
                 }}

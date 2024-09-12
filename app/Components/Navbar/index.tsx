@@ -1,3 +1,4 @@
+'use client';
 import { INavbar, NavList } from "@/types/Home";
 import styled from "styled-components";
 

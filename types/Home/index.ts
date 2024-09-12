@@ -33,6 +33,10 @@ export interface IBodyContainerProps {
   lists: NavList[];
 }
 
+export interface INavContainerItemsProps {
+  lists: NavList[];
+}
+
 export interface IBodyContainerState {
   width: number;
   height: number;
