@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { ThreeDots } from 'react-loader-spinner'
 import { changeWebLoadedOnce } from "@/lib/reducers/HomeReducer";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { HeaderAnimatedBoxState, IHeaderProps } from "@/types/Home";
 import { RootState } from "@/lib/store";
 
@@ -70,6 +70,7 @@ const HeaderAnimatedBox = (props: IHeaderProps) => {
   }, []);
 
   return (
+    <AnimatePresence>
     <AnimatedBox
       animate={{ y: isLoaded ? -(state.height) : 0 }}
       transition={{ duration: 1.6, ease: 'circIn' }}
@@ -84,6 +85,7 @@ const HeaderAnimatedBox = (props: IHeaderProps) => {
       />
       <p>Loading...</p>
     </AnimatedBox>
+    </AnimatePresence>
   );
 }
 

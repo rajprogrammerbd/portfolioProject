@@ -10,8 +10,6 @@ import { GoDownload } from "react-icons/go";
 import { FaLinkedin } from "react-icons/fa6";
 import { CiMenuFries } from "react-icons/ci";
 import { TypeAnimation } from 'react-type-animation';
-import { useSelector } from 'react-redux';
-import { RootState } from '@/lib/store';
 import { IBodyContainerProps, IBodyContainerState } from '@/types/Home';
 import NavContainerItems from "../NavContainerItems";
 
@@ -100,6 +98,10 @@ const LeftHeaderContainerSkillsTitle = styled.p`
   -webkit-text-fill-color: transparent;
 
   @media only screen and (max-width: 1173px) {
+    font-size: 3rem;
+  }
+
+  @media only screen and (max-width: 1247px) {
     font-size: 3rem;
   }
 `;

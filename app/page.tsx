@@ -38,7 +38,7 @@ export default function Home() {
 
   return (
     <>
-      {/* <HeaderAnimatedBox color1={color1} /> */}
+      <HeaderAnimatedBox color1={color1} />
       <WrapperAppBox $backgroundColor={bgColor} $textColor={color1}>
         <BodyHeader lists={state.lists} />
         {/* <BodyServiceSection /> */}
