@@ -1,5 +1,5 @@
 'use client';
-import { useState, createContext, useCallback } from "react";
+import { useState, useCallback } from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 import { AnimatePresence } from "framer-motion";
@@ -52,7 +52,7 @@ export default function Home() {
 
       <WrapperAppBox $backgroundColor={bgColor} $textColor={color1}>
         <BodyHeader lists={state.lists} showMenu={settingMenuShow} />
-        {/* <BodyServiceSection /> */}
+        <BodyServiceSection />
         {/* <Portfolio /> */}
         {/* <Blogs /> */}
         {/* <ContactSection /> */}
