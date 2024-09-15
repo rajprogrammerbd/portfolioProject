@@ -53,7 +53,7 @@ export default function Home() {
       <WrapperAppBox $backgroundColor={bgColor} $textColor={color1}>
         <BodyHeader lists={state.lists} showMenu={settingMenuShow} />
         <BodyServiceSection />
-        {/* <Portfolio /> */}
+        <Portfolio />
         {/* <Blogs /> */}
         {/* <ContactSection /> */}
       </WrapperAppBox>    
