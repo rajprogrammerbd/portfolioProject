@@ -12,7 +12,6 @@ import { CiMenuFries } from "react-icons/ci";
 import { TypeAnimation } from 'react-type-animation';
 import { IBodyContainerProps, IBodyContainerState } from '@/types/Home';
 import NavContainerItems from "../NavContainerItems";
-import { ShowedMenu } from "@/app/page";
 
 const MainWrapperBody = styled.div`
     width: 1320px;
@@ -266,9 +265,7 @@ function BodyHeader(props: IBodyContainerProps) {
       }
     });
 
-    const showedMenu = useContext(ShowedMenu);
-
-    const { lists } = props;
+    const { lists, showMenu } = props;
 
     useEffect(() => {
       const fn = () => {
@@ -288,7 +285,7 @@ function BodyHeader(props: IBodyContainerProps) {
             <Title href="/">rajprogrammerbd</Title>
               <ContainerResponsiveNav>
                 {/* <NavContainerItems lists={lists} /> */}
-                <CiMenuFries size={25} color="#e0e0e0" onClick={showedMenu} style={{ cursor: 'pointer' }} />
+                <CiMenuFries size={25} color="#e0e0e0" onClick={showMenu} style={{ cursor: 'pointer' }} />
               </ContainerResponsiveNav>
 
               <NavContainerItems lists={lists} />

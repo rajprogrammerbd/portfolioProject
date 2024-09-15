@@ -1,9 +1,7 @@
-import { useContext } from "react";
 import { useAnimate, stagger, motion } from "framer-motion";
 import { IoClose } from "react-icons/io5";
 import styled from "styled-components";
 import { IDisplayMenu, NavList } from "@/types/Home";
-import { ShowedMenu } from "@/app/page";
 
 const Wrapped = styled.div`
     top: 0;
@@ -49,8 +47,7 @@ const IconContainer = styled.div`
 `;
 
 function DisplayMenu(props: IDisplayMenu) {
-    const showMenu = useContext(ShowedMenu);
-    const { lists } = props;
+    const { lists, showMenu } = props;
 
     return (
         <WrappedAnime

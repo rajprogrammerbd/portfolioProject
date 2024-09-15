@@ -31,6 +31,7 @@ export interface IHeaderProps {
 
 export interface IBodyContainerProps {
   lists: NavList[];
+  showMenu: () => void;
 }
 
 export interface INavContainerItemsProps {
@@ -95,4 +96,5 @@ export interface IBlogsState {
 
 export type IDisplayMenu = {
   lists: NavList[];
+  showMenu: () => void;
 }

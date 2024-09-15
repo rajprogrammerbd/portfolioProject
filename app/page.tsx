@@ -14,8 +14,6 @@ import { ListOfNavbar } from "@/data/Home";
 import { RootState } from "@/lib/store";
 import DisplayMenu from "./Components/DisplayMenu";
 
-export const ShowedMenu = createContext<() => void>(() => {});
-
 // Styled-Components
 const WrapperAppBox = styled.div<{ $backgroundColor: string; $textColor: string }>`
   width: 100%;
@@ -46,18 +44,19 @@ export default function Home() {
   const { color1 } = useSelector((root: RootState) => root.homepage.color.textColors);
 
   return (
-    <ShowedMenu.Provider value={settingMenuShow}>
-      <HeaderAnimatedBox color1={color1} />
+    <>
+    <HeaderAnimatedBox color1={color1} />
       <AnimatePresence>
-        {showMenu && <DisplayMenu lists={state.lists} />}
+        {showMenu && <DisplayMenu lists={state.lists} showMenu={settingMenuShow} />}
       </AnimatePresence>
+
       <WrapperAppBox $backgroundColor={bgColor} $textColor={color1}>
-        <BodyHeader lists={state.lists} />
+        <BodyHeader lists={state.lists} showMenu={settingMenuShow} />
         {/* <BodyServiceSection /> */}
         {/* <Portfolio /> */}
         {/* <Blogs /> */}
         {/* <ContactSection /> */}
-      </WrapperAppBox>
-    </ShowedMenu.Provider>
+      </WrapperAppBox>    
+    </>
   );
 }
