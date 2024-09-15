@@ -92,3 +92,7 @@ export type BlogPostType = {
 export interface IBlogsState {
   lists: BlogPostType[];
 }
+
+export type IDisplayMenu = {
+  lists: NavList[];
+}

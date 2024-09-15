@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Link from 'next/link';
 import Image from 'next/image';
 import styled from "styled-components";
@@ -12,6 +12,7 @@ import { CiMenuFries } from "react-icons/ci";
 import { TypeAnimation } from 'react-type-animation';
 import { IBodyContainerProps, IBodyContainerState } from '@/types/Home';
 import NavContainerItems from "../NavContainerItems";
+import { ShowedMenu } from "@/app/page";
 
 const MainWrapperBody = styled.div`
     width: 1320px;
@@ -124,15 +125,35 @@ const LeftHeaderContainerSkillsPara = styled.p`
 `;
 
 const LeftHeaderContainerSkillButtons = styled.div`
-    width: 60%;
+    width: 55%;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     margin-top: 3rem;
 
     @media only screen and (max-width: 1243px) {
       width: 80%;
+    }
+
+    @media only screen and (max-width: 1344px) {
+      width: 70%;
+    }
+
+    @media only screen and (max-width: 1084px) {
+      width: 76%;
+    }
+
+    @media only screen and (max-width: 940px) {
+      width: 60%;
+    }
+
+    @media only screen and (max-width: 688px) {
+      width: 66%;
+    }
+
+    @media only screen and (max-width: 584px) {
+      width: 79%;
     }
 `;
 
@@ -245,6 +266,8 @@ function BodyHeader(props: IBodyContainerProps) {
       }
     });
 
+    const showedMenu = useContext(ShowedMenu);
+
     const { lists } = props;
 
     useEffect(() => {
@@ -265,7 +288,7 @@ function BodyHeader(props: IBodyContainerProps) {
             <Title href="/">rajprogrammerbd</Title>
               <ContainerResponsiveNav>
                 {/* <NavContainerItems lists={lists} /> */}
-                <CiMenuFries size={25} color="#e0e0e0" onClick={() => console.log('clicked on the icon')} />
+                <CiMenuFries size={25} color="#e0e0e0" onClick={showedMenu} style={{ cursor: 'pointer' }} />
               </ContainerResponsiveNav>
 
               <NavContainerItems lists={lists} />
