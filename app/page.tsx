@@ -54,8 +54,8 @@ export default function Home() {
         <BodyHeader lists={state.lists} showMenu={settingMenuShow} />
         <BodyServiceSection />
         <Portfolio />
-        {/* <Blogs /> */}
-        {/* <ContactSection /> */}
+        <Blogs />
+        <ContactSection />
       </WrapperAppBox>    
     </>
   );
