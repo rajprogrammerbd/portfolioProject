@@ -83,6 +83,10 @@ const ServiceWrapperLICover = styled.div`
   font-family: inherit;
   color: #e0e0e0;
   justify-items: center;
+
+  @media only screen and (max-width: 996px) {
+    grid-template-columns: 0.6fr 1.7fr 4fr 0.6fr;
+  }
 `;
 
 const ServiceWrapperLIKey = styled.p`
