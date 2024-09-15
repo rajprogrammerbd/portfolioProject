@@ -31,7 +31,7 @@ const MenuUL = styled.ul`
 
 const MenuLI = styled.li`
     font-family: inherit;
-    padding: 1.4rem 2.5rem;
+    padding: 2rem 2.5rem;
     text-transform: uppercase;
     font-size: 1.1rem;
     outline: 0;
