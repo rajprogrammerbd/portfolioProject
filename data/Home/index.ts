@@ -83,6 +83,13 @@ export const ListOfProjectWebApp: RecentWorksTypes[] = [
         name: 'Connect-Chat',
         description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
         url: '/connect-chat.jpg'
+    },
+    {
+        id: 1,
+        projectId: 2,
+        name: 'Github Cheatsheet',
+        description: 'Few helpful command of git',
+        url: '/github-cheatsheet.jpg'
     }
 ];
 

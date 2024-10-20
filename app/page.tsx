@@ -56,7 +56,7 @@ export default function Home() {
         <Portfolio />
         <Blogs />
         <ContactSection />
-      </WrapperAppBox>    
+      </WrapperAppBox>
     </>
   );
 }
