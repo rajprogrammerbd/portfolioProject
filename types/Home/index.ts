@@ -84,7 +84,7 @@ export type BlogPostType = {
   id: number;
   title: string;
   description: string;
-  img: string;
+  img: string | null;
   posted_date: string;
   category: string;
   post_link: string;

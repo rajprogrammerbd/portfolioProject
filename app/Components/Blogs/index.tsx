@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { ImBlogger2 } from "react-icons/im";
 import { motion } from "framer-motion";
 import { BlogPosts } from "@/data/Home";
 import { BlogPostType, IBlogsState } from "@/types/Home";
@@ -119,7 +120,7 @@ const WrapperBlogsRightBottomButton = styled(Link)`
 const WrapperBlogsAnime = motion(WrapperBlogs);
 
 function Blogs() {
-    const [state, setState] = useState<IBlogsState>(() => {
+    const [state, _] = useState<IBlogsState>(() => {
         return {
             lists: BlogPosts
         }
@@ -139,7 +140,7 @@ function Blogs() {
                         {state.lists.map((blog: BlogPostType) => (
                             <WrapperBlogsLI key={blog.id}>
                                 <WrapperBlogsLeft>
-                                    <Image src={blog.img} width={110} height={110} alt="blog image" />
+                                    {blog.img ? <Image src={blog.img} width={110} height={110} alt="blog image" /> : <ImBlogger2 size={70} color="#ddd" />}
                                 </WrapperBlogsLeft>
                                 <WrapperBlogsRight>
                                     <WrapperBlogsRightTop>

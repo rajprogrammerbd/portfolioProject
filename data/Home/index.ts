@@ -114,8 +114,17 @@ export const BlogPosts: BlogPostType[] = [
         title: 'JavaScript Engine & Javascript Is an Interpreted Language?',
         description: 'Javascript is a high-level programming language. Like every programming language...',
         img: '/js-logo.jpg',
-        posted_date: 'Dec 2, 2020',
+        posted_date: 'Dec 02, 2020',
         category: 'IT Explore',
         post_link: 'https://medium.com/swlh/javascript-engine-javascript-is-an-interpreted-language-81586e9688fd'
+    },
+    {
+        id: 1,
+        title: 'File System (FS) module in Node.js',
+        description: 'In node.js, the FS module handles the file system. Before discussing the FS module ...',
+        posted_date: 'Nov 01 2024',
+        category: 'IT Explore',
+        post_link: 'https://medium.com/@rajprogrammerbd/file-system-fs-module-in-node-js-db0504f1995d',
+        img: null
     }
 ];
