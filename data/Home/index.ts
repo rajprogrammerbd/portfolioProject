@@ -90,6 +90,13 @@ export const ListOfProjectWebApp: RecentWorksTypes[] = [
         name: 'Github Cheatsheet',
         description: 'Few helpful command of git',
         url: '/github-cheatsheet.jpg'
+    },
+    {
+        id: 2,
+        projectId: 2,
+        name: 'Contacts Management',
+        description: 'Applications for managing contact lists',
+        url: '/contacts_management.JPG'
     }
 ];
 
